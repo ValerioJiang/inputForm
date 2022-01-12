@@ -1,0 +1,429 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="col-md-10 mx-auto">
+      <form>
+        <div class="row">
+          <div class="col-sm-6 grey-label">
+            <div class="form-group row">
+              <div class="col-sm-12">
+                <label for="inputFirstname"
+                  >Vorrei essere contattato tramite <span style="color: red; font-weight: bold">*</span></label
+                >
+                <br />
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    id="inlineRadioInquiry"
+                    value="Informazioni"
+                    [(ngModel)]="inquiryMotivation"
+                    [ngModelOptions]="{ standalone: true }"
+                  />
+                  <label class="form-check-label" for="">Informazioni </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    id="inlineRadioInquiry2"
+                    value="Reclamo"
+                    [(ngModel)]="inquiryMotivation"
+                    [ngModelOptions]="{ standalone: true }"
+                  />
+                  <label class="form-check-label" for="">Reclamo</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-12">
+                <div ngbDropdown class="dropdown">
+                  <label for="inputAddressLine1"
+                    >Titolo
+                    <span style="color: red; font-weight: bold">*</span></label
+                  >
+                  <br />
+                  <button
+                    ngbDropdownToggle
+                    class="btn btn-secondary"
+                    type="button"
+                    id="dropdownMenuButton1"
+                    aria-expanded="false"
+                  >
+                    {{ personChosenTitle }}
+                  </button>
+                  <ul ngbDropdownMenu aria-labelledby="dropdownMenuButton1">
+                    <li *ngFor="let title of personTitle">
+                      <a ngbDropdownItem (click)="setPersonTitle(title)">{{
+                        title
+                      }}</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-12">
+                <label for="inputAddressLine1"
+                  >Nome
+                  <span style="color: red; font-weight: bold">*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputAddressLine1"
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-12">
+                <label for="inputAddressLine1"
+                  >Cognome
+                  <span style="color: red; font-weight: bold">*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputAddressLine1"
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-8">
+                <label for="inputContactNumber"
+                  >Indirizzo
+                  <span style="color: red; font-weight: bold">*</span></label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  id="inputContactNumber"
+                />
+              </div>
+              <div class="col-sm-4">
+                <label for="inputWebsite"
+                  >Civico
+                  <span style="color: red; font-weight: bold">*</span></label
+                >
+                <input type="text" class="form-control" id="inputWebsite" />
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-4">
+                <label for="inputContactNumber"
+                  >CAP
+                  <span style="color: red; font-weight: bold">*</span></label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  id="inputContactNumber"
+                />
+              </div>
+              <div class="col-sm-8">
+                <label for="inputWebsite"
+                  >Città
+                  <span style="color: red; font-weight: bold">*</span></label
+                >
+                <input type="text" class="form-control" id="inputWebsite" />
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-12">
+                <label for="inputFirstname"
+                  >Vorrei essere contattato tramite</label
+                >
+                <br />
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="inlineRadioOptions2"
+                    id="inlineRadio2"
+                    value="E-mail"
+                    [(ngModel)]="contactFrom"
+                  />
+                  <label class="form-check-label" for="inlineRadio3"
+                    >E-mail
+                    <span
+                      *ngIf="contactFrom == 'E-mail'"
+                      style="color: red; font-weight: bold"
+                      >*</span
+                    ></label
+                  >
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="inlineRadioOptions2"
+                    id="inlineRadio2"
+                    value="Telefono"
+                    [(ngModel)]="contactFrom"
+                  />
+                  <label class="form-check-label" for="inlineRadio4"
+                    >Telefono<span
+                      *ngIf="contactFrom == 'Telefono'"
+                      style="color: red; font-weight: bold"
+                      >*</span
+                    ></label
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-12">
+                <label for="inputEmail"
+                  >E-mail
+                  <span
+                    *ngIf="contactFrom == 'E-mail'"
+                    style="color: red; font-weight: bold"
+                    >*</span
+                  ></label
+                >
+                <input type="text" class="form-control" id="inputEmail" />
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-12">
+                <label for="inputTel"
+                  >Telefono
+                  <span
+                    *ngIf="contactFrom == 'Telefono'"
+                    style="color: red; font-weight: bold"
+                    >*</span
+                  ></label
+                >
+                <input type="text" class="form-control" id="inputTel" />
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-12">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value="Dati del veicolo"
+                    id="flexCheckDefault"
+                    [(ngModel)]="vehicleData"
+                    [ngModelOptions]="{ standalone: true }"
+                  />
+                  <label class="form-check-label" for="flexCheckDefault">
+                    Dati del veicolo
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row" *ngIf="vehicleData == true">
+              <div class="col-sm-12">
+                <label for="inputEmail">Numero di telaio</label>
+                <input type="text" class="form-control" id="inputEmail" />
+              </div>
+            </div>
+
+            <div class="form-group row" *ngIf="vehicleData == true">
+              <div class="col-sm-12">
+                <label for="inputEmail">Targa</label>
+                <input type="text" class="form-control" id="inputEmail" />
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-12">
+                <div
+                  class="form-check form-check-inline"
+                  *ngFor="let sale of salesTypes; let i = index"
+                >
+                  <input
+                    class="form-check-input"
+                    id="sale{{ i }}"
+                    name="sale"
+                    type="radio"
+                    [value]="sale"
+                    [(ngModel)]="typeOfSale"
+                    [ngModelOptions]="{ standalone: true }"
+                  />
+                  <label class="form-check-label" for="sale{{ i }}">{{
+                    sale
+                  }}</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row" *ngIf="typeOfSale == 'Sales'">
+              <div class="col-sm-12">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value="Dati del veicolo"
+                    id="deliveryDelayCheckBox"
+                    [(ngModel)]="deliveryDelay"
+                    [ngModelOptions]="{ standalone: true }"
+                  />
+                  <label class="form-check-label" for="deliveryDelayCheckBox">
+                    Ritardo di consegna
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row" *ngIf="typeOfSale == 'Sales'">
+              <div class="col-sm-12">
+                <label for="inputUrn"
+                  >Telaio o numero d'ordine o URN
+                  <span
+                    *ngIf="deliveryDelay == true"
+                    style="color: red; font-weight: bold"
+                    >*</span
+                  ></label
+                >
+                <input type="text" class="form-control" id="inputUrn" />
+              </div>
+            </div>
+
+            <div class="form-group row" *ngIf="typeOfSale == 'Sales'">
+              <div class="col-sm-12">
+                <p>Allegare Copia Contratto/Finanziamento</p>
+              </div>
+            </div>
+
+            <div class="form-group row" *ngIf="typeOfSale == 'After Sales'">
+              <div class="col-sm-12">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value="È stata aperta una RAT"
+                    id="ratSelectionCheckBox"
+                    [(ngModel)]="ratSelectionBox"
+                    [ngModelOptions]="{ standalone: true }"
+                  />
+                  <label class="form-check-label" for="ratSelectionCheckBox">
+                    È stata aperta una RAT
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row" *ngIf="typeOfSale == 'After Sales'">
+              <div class="col-sm-12">
+                <label for="inputUrn"
+                  >RAT n°
+                  <span
+                    *ngIf="ratSelectionBox == true"
+                    style="color: red; font-weight: bold"
+                    >*</span
+                  >
+                </label>
+                <input type="text" class="form-control" id="inputUrn" />
+              </div>
+            </div>
+
+            <div class="form-group row" *ngIf="typeOfSale == 'After Sales'">
+              <div class="col-sm-12">
+                <label for="inputUrn">Ordine Ricambi n°</label>
+                <input type="text" class="form-control" />
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-12">
+                <label for="inputMessage"
+                  >Testo messaggio (massimo 1024 caratteri)
+                  <span style="color: red; font-weight: bold">*</span></label
+                >
+                <textarea
+                  class="form-control"
+                  id="exampleFormControlTextarea3"
+                  rows="7"
+                  [(ngModel)] = "mailMessage"
+                  (ngModelChange) = "mailMessageChange()"
+                  [ngModelOptions]="{standalone: true}"
+                ></textarea>
+              </div>
+            </div>
+
+            <!--TODO  fare il shoe more or less text-->
+
+            <div class="form-group row">
+              <div class="col-sm-12">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="privacyCheckbox1"
+                  />
+                  <label class="form-check-label" for="privacyCheckbox1">
+                    Ho letto e accetto i Termini di utilizzo Toyota
+                    <span style="color: red; font-weight: bold">*</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-12">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value="Dati del veicolo"
+                    id="deliveryDelay"
+                  />
+                  <label class="form-check-label" for="deliveryDelay">
+                    Ho letto e accetto l'informativa sulla privacy dei dati
+                    Toyota <span style="color: red; font-weight: bold">*</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-6">
+                <button type="submit" class="button-primary btn primary">
+                  Invia
+                </button>
+              </div>
+
+              <div class="col-sm-6">
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                  Consectetur, et dolorum debitis veniam temporibus distinctio!
+                  Quis nam tenetur fuga qui, repellat aspernatur aliquam
+                  veritatis nihil similique vel adipisci harum quos.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-sm-6"
+            style="background-color: #e6e6e6; padding: 3%; height: fit-content"
+          >
+            <h4 style="font-weight: bold">Contatti</h4>
+            <br />
+            <h6 style="font-weight: bold">Corrispondenza</h6>
+            <p>Toyota Motor Italia</p>
+            <p>Servizio Clienti</p>
+            <p>Via Kiiciro Toyoda, 2</p>
+            <p>00148, Roma</p>
+            <hr />
+            <hr />
+            <h6 style="font-weight: bold">Corrispondenza</h6>
+            <br />
+            <p>
+              800 869682 Dal lunedì al venerdì(salvo festivi) dalle 8:00 alle
+              20:00, il sabato (salvo festivi) dalle 9:00 alle 13:00
+            </p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

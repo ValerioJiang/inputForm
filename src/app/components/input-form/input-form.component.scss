@@ -1,0 +1,43 @@
+.form-control {
+  background-color: #e6e6e6;
+  background-clip: padding-box;
+  border: white;
+  border-radius: 0.25rem;
+}
+
+.grey-label {
+  color: grey;
+}
+
+.form-check-label {
+  color: black;
+}
+
+.dropdown-toggle::after {
+  border: solid red;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  margin-left: 15.255em;
+}
+
+.btn:not(:disabled):not(.disabled) {
+  cursor: pointer;
+  background-color: lightgrey;
+  color: grey;
+  border: white;
+}
+
+textarea {
+  resize: none;
+}
+.button-primary{
+background: transparent;
+  border: 2px solid black;
+  font-size: 25px;
+  border-radius: 10%/50%;
+  width: 200px;
+  padding: 5px;
+}
